@@ -1,0 +1,98 @@
+<!-- chat.html -->
+
+{% extends 'info/base.html' %} {% block title %}코코넛톡 - 채팅{% endblock %} {%
+block addcss %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('info.static', filename='chat.css') }}"
+/>
+<link
+  rel="stylesheet"
+  href="{{ url_for('info.static', filename='userlist.css') }}"
+/>
+{% endblock %} {% block content %}
+<div class="container">
+  <main class="chat-screen">
+    <section class="chat-screen__bar">
+      <div class="user chat-user">
+        <div class="user__column">
+          <div class="user__pic"></div>
+        </div>
+        <div class="user__column">
+          <p class="user__nick">채임스</p>
+          <p class="user__message">
+            <i class="fas fa-user" aria-hidden="true"></i> 2
+          </p>
+        </div>
+      </div>
+    </section>
+    <ul class="chat-screen__comments" id="chat-messages">
+      <!-- 채팅 메시지가 여기에 동적으로 추가될 예정 -->
+    </ul>
+  </main>
+  <form class="chat-form" id="chat-form">
+    <div class="chat-form__plugin">
+      <i class="far fa-smile chat-form__icon" aria-hidden="true"></i>
+      <i class="fas fa-paperclip chat-form__icon" aria-hidden="true"></i>
+      <i class="far fa-calendar-check chat-form__icon" aria-hidden="true"></i>
+    </div>
+    <div class="chat-form__field">
+      <textarea class="chat-form__msg" id="message-input"></textarea>
+      <input class="chat-form__bt" type="submit" value="전송" />
+    </div>
+  </form>
+</div>
+<script
+  src="https://kit.fontawesome.com/c8e2b99a17.js"
+  crossorigin="anonymous"
+></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("chat-form");
+    const messageInput = document.getElementById("message-input");
+    const messagesContainer = document.getElementById("chat-messages");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const message = messageInput.value.trim();
+      if (message === "") return;
+
+      fetch("/send-message", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message: message }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          const newMessage = document.createElement("li");
+          const cleanMessage = data.message.replace(/^User: /, ""); // 'User: ' 문자열 제거
+          newMessage.textContent = cleanMessage;
+          newMessage.classList.add("comment"); // comment 클래스 추가
+          messagesContainer.appendChild(newMessage);
+          messageInput.value = "";
+        })
+        .catch((error) => {
+          console.error("Error sending message:", error);
+        });
+    });
+
+    // 초기 메시지 로드
+    fetch("/get-messages")
+      .then((response) => response.json())
+      .then((data) => {
+        data.messages.forEach((msg) => {
+          const messageElement = document.createElement("li");
+          const cleanMessage = msg.message.replace(/^User: /, ""); // 'User: ' 문자열 제거
+          messageElement.textContent = cleanMessage;
+          messageElement.classList.add("comment"); // comment 클래스 추가
+          messagesContainer.appendChild(messageElement);
+        });
+      })
+      .catch((error) => {
+        console.error("Error loading messages:", error);
+      });
+  });
+</script>
+{% endblock %}

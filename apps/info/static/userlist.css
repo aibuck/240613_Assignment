@@ -1,0 +1,48 @@
+.user-list a {
+  text-decoration: none;
+  color: initial;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 16px;
+  position: relative;
+}
+
+.user:hover {
+  background-color: #f2f2f2;
+}
+
+.user__pic:not(.my-profile .user__pic) {
+  width: 50px;
+  height: 50px;
+  border-radius: 18px;
+  background-color: skyblue;
+  margin-right: 10px;
+}
+
+.user__nick {
+  font-size: 0.9em;
+  margin: 5px;
+}
+
+.user__state,
+.user__message {
+  color: #aeaeae;
+  font-size: 0.8em;
+  margin: 5px;
+  width: 50vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user__time {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  color: #aeaeae;
+  font-size: 0.8em;
+}

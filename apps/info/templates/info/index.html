@@ -1,0 +1,36 @@
+{% extends 'info/base.html' %} {% block title %}코코넛톡 - 로그인{% endblock %}
+{% block addcss %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('info.static', filename='index.css') }}"
+/>
+{% endblock %} {% block content %}
+<div class="container">
+  <div class="login">
+    <h1 class="login__logo"></h1>
+    <h3 class="login__title">코코넛톡 - 로그인</h3>
+    <form
+      class="login__form"
+      action="{{ url_for('info.friends') }}"
+      method="POST"
+    >
+      <input
+        class="login__form__id"
+        placeholder="코코넛계정 (이메일 또는 전화번호)"
+        type="text"
+        name="email"
+      />
+      <input
+        class="login__form__pw"
+        placeholder="비밀번호"
+        type="password"
+        name="password"
+      />
+      <input class="login__form__bt" type="submit" value="로그인" />
+    </form>
+    <p class="login__account">
+      코코넛 계정 찾기&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;비밀번호 재설정
+    </p>
+  </div>
+</div>
+{% endblock %}

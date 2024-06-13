@@ -1,0 +1,81 @@
+{% extends 'info/base.html' %} {% block title %}코코넛톡 - 채팅 목록{%endblock%}
+{% block addcss%}
+<link
+  rel="stylesheet"
+  href="{{ url_for('info.static', filename='freinds.css') }}"
+/>
+<link
+  rel="stylesheet"
+  href="{{ url_for('info.static', filename='navbar.css') }}"
+/>
+<link
+  rel="stylesheet"
+  href="{{ url_for('info.static', filename='header.css') }}"
+/>
+<link
+  rel="stylesheet"
+  href="{{ url_for('info.static', filename='userlist.css') }}"
+/>
+{% endblock %} {% block content %}
+
+<nav class="nav">
+  <ul class="nav__list">
+    <li class="nav__btn">
+      <a href="/friends">
+        <i class="fas fa-user fa-2x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="nav__btn">
+      <a class="active" href="/chats">
+        <i class="fas fa-comment fa-2x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+  <header class="header">
+    <h3 class="header__title">채팅</h3>
+    <div class="header__menu">
+      <span><i class="fas fa-search" aria-hidden="true"></i></span>
+      &nbsp;
+      <span><i class="fas fa-comment-dots" aria-hidden="true"></i></span>
+    </div>
+  </header>
+
+  <main class="friends">
+    <div class="user-list">
+      <a href="/chat">
+        <div class="user">
+          <div class="user__column">
+            <div class="user__pic"></div>
+          </div>
+          <div class="user__column">
+            <p class="user__nick">채팅방 이름</p>
+            <p class="user__message">채팅 미리보기 어쩌구저쩌구</p>
+            <p class="user__time">오후 2:00</p>
+          </div>
+        </div>
+      </a>
+      <a href="/chat">
+        <div class="user">
+          <div class="user__column">
+            <div class="user__pic"></div>
+          </div>
+          <div class="user__column">
+            <p class="user__nick">채팅방 이름</p>
+            <p class="user__message">채팅 미리보기 어쩌구저쩌구</p>
+            <p class="user__time">오후 2:00</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </main>
+</div>
+<script
+  src="https://kit.fontawesome.com/c8e2b99a17.js"
+  crossorigin="anonymous"
+></script>
+
+<!-- <script src="sample.js"></script> -->
+{% endblock %}

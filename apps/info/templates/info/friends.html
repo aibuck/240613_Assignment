@@ -1,0 +1,154 @@
+{% extends 'info/base.html' %} {% block title %}코코넛톡 - 친구 목록{% endblock %}
+{% block addcss%} <link rel="stylesheet" href="{{ url_for('info.static', filename='friends.css') }}">
+<link rel="stylesheet" href="{{ url_for('info.static', filename='navbar.css') }}">
+<link rel="stylesheet" href="{{ url_for('info.static', filename='header.css') }}">
+<link rel="stylesheet" href="{{ url_for('info.static', filename='userlist.css') }}">
+{% endblock %}
+{% block content %}
+
+  <nav class="nav">
+    <ul class="nav__list">
+      <li class="nav__btn">
+        <a class="active" href="/friends">
+          <i class="fas fa-user fa-2x" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li class="nav__btn">
+        <a href="/chats">
+          <i class="fas fa-comment fa-2x" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <header class="header">
+      <h3 class="header__title">친구</h3>
+      <div class="header__menu">
+        <span><i class="fas fa-search" aria-hidden="true"></i></span>
+        &nbsp;
+        <span><i class="fas fa-user-plus" aria-hidden="true"></i></span>
+      </div>
+    </header>
+
+    <main class="friends">
+      <div class="user my-profile">
+        <div class="user__column">
+          <div class="user__pic"></div>
+        </div>
+        <div class="user__column">
+          <p class="user__nick">명기</p>
+          <p class="user__state">코딩뉴비</p>
+        </div>
+      </div>
+      <div class="friends__menu">
+        <span class="friends__menu__header">친구 3</span>
+      </div>
+      <div class="user-list">
+        <div class="user">
+          <div class="user__column">
+            <div class="user__pic"></div>
+          </div>
+          <div class="user__column">
+            <p class="user__nick">친구</p>
+            <p class="user__state">친구 상태 메시지</p>
+          </div>
+        </div>
+        <div class="user">
+          <div class="user__column">
+            <div class="user__pic"></div>
+          </div>
+          <div class="user__column">
+            <p class="user__nick">친구</p>
+            <p class="user__state">친구 상태 메시지</p>
+          </div>
+        </div>
+        <div class="user">
+          <div class="user__column">
+            <div class="user__pic"></div>
+          </div>
+          <div class="user__column">
+            <p class="user__nick">친구</p>
+            <p class="user__state">친구 상태 메시지</p>
+          </div>
+        </div>
+        <div class="user">
+          <div class="user__column">
+            <div class="user__pic"></div>
+          </div>
+          <div class="user__column">
+            <p class="user__nick">친구</p>
+            <p class="user__state">친구 상태 메시지</p>
+          </div>
+        </div>
+        <div class="user">
+          <div class="user__column">
+            <div class="user__pic"></div>
+          </div>
+          <div class="user__column">
+            <p class="user__nick">친구</p>
+            <p class="user__state">친구 상태 메시지</p>
+          </div>
+        </div>
+        <div class="user">
+          <div class="user__column">
+            <div class="user__pic"></div>
+          </div>
+          <div class="user__column">
+            <p class="user__nick">친구</p>
+            <p class="user__state">친구 상태 메시지</p>
+          </div>
+        </div>
+        <div class="user">
+          <div class="user__column">
+            <div class="user__pic"></div>
+          </div>
+          <div class="user__column">
+            <p class="user__nick">친구</p>
+            <p class="user__state">친구 상태 메시지</p>
+          </div>
+        </div>
+        <div class="user">
+          <div class="user__column">
+            <div class="user__pic"></div>
+          </div>
+          <div class="user__column">
+            <p class="user__nick">친구</p>
+            <p class="user__state">친구 상태 메시지</p>
+          </div>
+        </div>
+        <div class="user">
+          <div class="user__column">
+            <div class="user__pic"></div>
+          </div>
+          <div class="user__column">
+            <p class="user__nick">친구</p>
+            <p class="user__state">친구 상태 메시지</p>
+          </div>
+        </div>
+        <div class="user">
+          <div class="user__column">
+            <div class="user__pic"></div>
+          </div>
+          <div class="user__column">
+            <p class="user__nick">친구</p>
+            <p class="user__state">친구 상태 메시지</p>
+          </div>
+        </div>
+        <div class="user">
+          <div class="user__column">
+            <div class="user__pic"></div>
+          </div>
+          <div class="user__column">
+            <p class="user__nick">친구</p>
+            <p class="user__state">친구 컴포넌트입니다</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="https://kit.fontawesome.com/c8e2b99a17.js" crossorigin="anonymous"></script>
+  <!-- <script src="sample.js"></script> -->
+
+</body></html>
+{% endblock %}

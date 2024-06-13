@@ -1,0 +1,23 @@
+.container {
+  margin-left: 70px;
+}
+
+.my-profile .user__pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  background-image: url(coconut.png);
+  background-size: 100% 100%;
+  margin-right: 10px;
+}
+
+.friends__menu {
+  font-size: 0.8em;
+  margin: 10px 15px;
+  border-top: 1px solid #aeaeae;
+  padding-top: 15px;
+}
+
+.friends__menu__header {
+  color: #aeaeae;
+}
